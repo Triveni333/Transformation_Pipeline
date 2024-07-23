@@ -26,3 +26,7 @@ print(transform)
 third_data = data[data.Data_value.notnull()]
 third_data.to_csv('No missing data values.csv')
 print(third_data)
+
+data['Data_value'] = data.groupby('Series_reference')['Data_value'].transform(sum)
+data.to_csv('Total value of each series.csv')
+print(data)
